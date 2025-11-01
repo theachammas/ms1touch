@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ece5dd;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER BAR */
+    .header {
+      background-color: #075e54;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: url('https://i.imgur.com/ih8dZ9B.png') center/cover; /* fake profile pic */
+    }
+
+    .contact-name {
+      font-weight: 500;
+    }
+
+    .status {
+      font-size: 12px;
+      color: #d0f8ce;
+    }
+
+    /* CHAT AREA */
+    .chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .bubble {
+      background-color: #dcf8c6;
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin: 5px;
+      max-width: 80%;
+      align-self: flex-end;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      animation: pop 0.2s ease-out;
+    }
+
+    .timestamp {
+      font-size: 10px;
+      text-align: right;
+      color: gray;
+      margin-top: 2px;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* FAKE TEXT BAR */
+    .footer {
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: left;
+      color: gray;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="avatar"></div>
+    <div>
+      <div class="contact-name">Leila</div>
+      <div class="status">online</div>
+    </div>
+  </div>
+
+  <div class="chat" id="chat"></div>
+
+  <div class="footer">Type a message...</div>
+
+  <audio id="ping" src="https://cdn.jsdelivr.net/gh/naptha/tinysound/notification.mp3" preload="auto"></audio>
+
+  <script>
+    const messages = [
+      "hey",
+      "are you awake?",
+      "please answer",
+      "i need to tell you something",
+      "it's urgent",
+      "you won’t believe this",
+      "why are you ignoring me?",
+      "did you see what happened?",
+      "please just read",
+      "hello??",
+      "please please please",
+      "this can’t wait"
+    ];
+
+    const chat = document.getElementById("chat");
+    const ping = document.getElementById("ping");
+    let i = 0;
+
+    function currentTime() {
+      let now = new Date();
+      return now.getHours() + ":" + (now.getMinutes()<10 ? "0" : "") + now.getMinutes();
+    }
+
+    function addMessage() {
+      if (i < messages.length) {
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerHTML = messages[i] + '<div class="timestamp">' + currentTime() + '</div>';
+        chat.prepend(bubble);
+        ping.currentTime = 0;
+        ping.play();
+        i++;
+        setTimeout(addMessage, 600 + Math.random() * 600);
+      } else {
+        // Loop the sequence or end silently
+        setTimeout(() => i = 0, 5000);
+      }
+    }
+
+    window.onload = () => {
+      setTimeout(addMessage, 1500);
+    };
+  </script>
+</body>
+</html>
