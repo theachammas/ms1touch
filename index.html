@@ -32,7 +32,7 @@
         display: flex;
         align-items: center;
         padding: 8px;
-        animation: slideDown 1.5s ease forwards;
+        animation: slideDown 1.8s ease forwards;
       }
 
       .notification img {
@@ -178,8 +178,8 @@
         // Remove notification after a few seconds
         setTimeout(() => div.remove(), 3000);
 
-        // Schedule next notification (every 1.2 seconds for intensity)
-        setTimeout(() => showNotification(index + 1), 1200);
+        // Schedule next notification (every 1.8 seconds for intensity)
+        setTimeout(() => showNotification(index + 1), 1800);
       }
 
       window.onload = () => {
