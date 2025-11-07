@@ -157,6 +157,7 @@
       ];
 
       const ping = document.getElementById("ping");
+      ping.muted = false;
 
       function showNotification(index) {
         if (index >= notifications.length) return;
@@ -173,7 +174,7 @@
         document.body.appendChild(div);
 
         // Play WhatsApp sound
-        // ping.currentTime = 0;
+        ping.currentTime = 0;
         ping.play();
 
         // Remove notification after a few seconds
