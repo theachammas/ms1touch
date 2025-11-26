@@ -215,10 +215,10 @@
         ping.play();
 
         // Remove notification after a few seconds
-        setTimeout(() => div.remove(), 3000);
+        setTimeout(() => div.remove(), 2000);
 
         // Schedule next notification (every 1 second for intensity)
-        setTimeout(() => showNotification(index + 1), 1400);
+        setTimeout(() => showNotification(index + 1), 1000);
       }
 
       window.onload = () => {
