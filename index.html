@@ -33,7 +33,7 @@
         display: flex;
         align-items: center;
         padding: 8px;
-        animation: slideDown 1.4s ease forwards;
+        animation: slideDown 1s ease forwards;
       }
 
       .notification img {
@@ -91,8 +91,13 @@
       const notifications = [
         {
           name: "Celine Oueiss",
-          message: "Are you okay?? is your family safe?",
+          message: "OMG OMG",
           img: "https://i.imgur.com/8Km9tLL.png",
+        },
+        {
+          name: "Celine Oueiss",
+          message: "Are you okay?? is your family safe?",
+          img: "https://i.imgur.com/s5IY8UM.png",
         },
         {
           name: "Mum",
@@ -105,13 +110,19 @@
           img: "https://i.imgur.com/s5IY8UM.png",
         },
         {
+          {
+          name: "Dad",
+          message: "Don't worry, we're coming home",
+          img: "https://i.imgur.com/s5IY8UM.png",
+        },
+        {
           name: "friends in times of war",
           message: "Alia: guysss",
           img: "https://i.imgur.com/kG7xBHP.png",
         },
         {
           name: "friends in times of war",
-          message: "Alia: wtf was that",
+          message: "Alia: WTF was that",
           img: "https://i.imgur.com/kG7xBHP.png",
         },
         {
@@ -131,7 +142,7 @@
         },
         {
           name: "Michèle",
-          message: "omg",
+          message: "OMG",
           img: "https://i.imgur.com/Nl8Y0Vv.png",
         },
         {
@@ -146,14 +157,40 @@
         },
         {
           name: "Celia France",
-          message: "where are mum and dad??",
+          message: "Where are mum and dad??",
           img: "https://i.imgur.com/Nl8Y0Vv.png",
         },
         {
           name: "Celia France",
-          message: "are you home?",
+          message: "Are you home?",
           img: "https://i.imgur.com/Nl8Y0Vv.png",
         },
+        {
+          name: "Elvin Zgheib",
+          message: "titi I heard the strike was close to yours",
+          img: "https://i.imgur.com/s5IY8UM.png",
+        },
+        {
+          name: "Elvin Zgheib",
+          message: "are u ok??",
+          img: "https://i.imgur.com/s5IY8UM.png",
+        },
+        {
+          name: "Tania",
+          message: "Do you wanna come to my place?",
+          img: "https://i.imgur.com/s5IY8UM.png",
+        },
+        {
+          name: "André",
+          message: "you're welcome to stay at ours",
+          img: "https://i.imgur.com/s5IY8UM.png",
+        },
+        {
+          name: "Jihane",
+          message: "Do you need anything??",
+          img: "https://i.imgur.com/s5IY8UM.png",
+        },
+        {
       ];
 
       const ping = document.getElementById("ping");
@@ -180,7 +217,7 @@
         // Remove notification after a few seconds
         setTimeout(() => div.remove(), 3000);
 
-        // Schedule next notification (every 1.4 seconds for intensity)
+        // Schedule next notification (every 1 second for intensity)
         setTimeout(() => showNotification(index + 1), 1400);
       }
 
