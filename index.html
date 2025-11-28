@@ -222,10 +222,8 @@
       window.onload = () => {
         // On mobile, ensure user interaction first
         const start = () => {
-          document.body.removeEventListener("click", start);
           showNotification(0);
         };
-        document.body.addEventListener("click", start);
 
       };
     </script>
